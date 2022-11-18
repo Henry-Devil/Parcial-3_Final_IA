@@ -1,0 +1,142 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Vector Machines (SVM)</title>
+
+    <link rel="stylesheet" href="css/ML.css">
+</head>
+
+<body>
+    <h1>Support Vector Machines (SVM) en python con Sklearn</h1>
+    <p>En esta página, aprenderá sobre las máquinas vectoriales de soporte (o SVM) y cómo se implementan en Python
+        usando Sklearn. El algoritmo de máquina de vectores de soporte es un algoritmo de aprendizaje automático
+        supervisado que se usa a menudo para problemas de clasificación.</p>
+
+        <p>Todas las ejecuciones se realizaron en Google colab. </p>
+        <p>
+            <strong><a href="https://colab.research.google.com/drive/1CtnLtr5wY5jiPHPpqyhuupFLamn5iYUz?usp=sharing" target="_blank" rel="alternate noopener noreferrer"> <span style="color: #eeeff0;">Has clic aquí.</span></a></strong>
+        </p>
+<hr>
+    <h2>1. Importacion de librerías.</h2>
+    <pre>
+        import pandas as pd
+        from sklearn.datasets import load_iris
+        import matplotlib.pyplot as plt
+        %matplotlib inline
+        from sklearn.model_selection import train_test_split
+        from sklearn.svm import SV</pre>
+<hr>
+    <h2>2. Se cargan los datos del dataset (iris)</h2>
+    <pre>iris = load_iris()</pre>
+<hr>
+    <h2>3. Muestra los atributos y datos que hay dentro de nuestro data frame. </h2>
+    <pre>iris.target_names</pre>
+    <p>Ejecución :['DESCR',
+        'data',
+        'data_module',
+        'feature_names',
+        'filename',
+        'frame',
+        'target',
+        'target_names']</p>
+<hr>
+    <h2>4. Tablas de frecuencia</h2>
+    <pre>df = pd.DataFrame(iris.data, columns=iris.feature_names)
+        df.head()</pre>
+    <p>Aquí podemos ver los primero 5 datos de nuestro data frame. </p>
+    <img src="img/tarrget.png" alt="Data frame" width="500" , height="200">
+    <hr>
+
+    <p>Acá muestra una nueva columna llamada "target" la cual el resultado que buscamos y el dataset tiene 3 target =
+        Iris Setosa, Iris Versicolour, Iris Virginica (va del 0 al 3)</p>
+
+    <pre>df['target'] = iris.target
+df.head()</pre>
+    <img src="img/tarrget2.png" alt="" width="500" , height="200">
+<hr>
+
+    <p>Aquí se busca encontrar el valor objetivo o (target) con los primeros 5 valores. </p>
+
+    <pre>df[df.target==2].head()</pre>
+    <img src="img/tarrget3.png" alt="" width="500" , height="200"><br>
+<hr>
+    <p>En este apartado del codigo, muestra el nombre respectivo al "target_names" que = Setosa.
+    </p>
+
+    <pre>
+        df['flower_name'] = df.target.apply(lambda x: iris.target_names[x])
+        df.head()</pre>
+    <img src="img/flower_name.PNG" alt="" width="600" , height="200">
+<hr>
+
+    <P>Creamos 3 data frames diferentes, de los cuales usaremos para la clasifación.</P>
+    <pre>
+    df0= df[df.target==0]
+    df1= df[df.target==1]
+    df2= df[df.target==2]</pre>
+    <hr>
+    <br>
+    <h2>5. Clasificación y muestra de diagramas</h2>
+    <p>Acá podemos ver la clasificación con el eje x "sepal length" y de del eje y "sepal widht". Se utiliza el metodo
+        scatter para realizar el diagrama de dispersion.</p>
+    <pre>
+        plt.xlabel('Sepal length')
+        plt.ylabel('Sepal widht')
+        plt.scatter(df0['sepal length (cm)'], df0['sepal width (cm)'], color='green', marker='+')
+        plt.scatter(df1['sepal length (cm)'], df1['sepal width (cm)'], color='blue', marker='.')</pre>
+
+    <p>Resultado:</p>
+    <img src="img/diagrama1.PNG" alt="">
+    <hr>
+
+    </p>
+    <p>Se usa de la misma manera el "petal length y widht" para mostrar el diagrama.</p>
+    <pre>
+            plt.xlabel('Petal length')
+            plt.ylabel('Petal widht')
+            plt.scatter(df0['petal length (cm)'], df0['petal width (cm)'], color='green', marker='+')
+            plt.scatter(df1['petal length (cm)'], df1['petal width (cm)'], color='blue', marker='.')</pre>
+    <img src="img/diagrama2.PNG" alt="">
+    <hr>
+
+    <h2>6. Creación de variables de entrenamiento y pruebas.</h2>
+    <p>Usamos el motodo drop para usar exclusivamente la columna "flower_name" quee es la que nos va permitir darle un
+        entrenamiento.</p>
+    <pre>
+                X = df.drop(['target', 'flower_name'], axis='columns')
+                y = df.target</pre>
+
+    <p>Separamos nuestros dataset en datos de entrenamiento y prueba</p>
+    <pre>   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)</pre>
+<hr>
+    <h2>7. Creación de el algoritmo y aplicar el entrenamiento</h2>
+    <p>Con este metodo vemos el número de datos que tenemos en entrenamiento y que vamos a entrenar</p>
+    <pre>len(X_train), len(X_test)</pre>
+    <p>salida: (120, 30)</p>
+    <p>Inicializamos nuestro modelo.</p>
+    <pre>model = SVC()</pre>
+<hr>
+    <h2>8. Aplicar predicciones y Score</h2>
+    <pre>model.fit(X_train, y_train)</pre>
+    <p>salida: SVC()</p>
+<hr>
+    <P>Aquí con el metodo score demuestra la precisión del modelo en porcentaje de los valores clasificados.</P>
+    <pre>model.score(X_test, y_test)</pre>
+    <p>Salida: 0.9333333333333333</p>
+    <hr>
+    <p>La función predict() de Python nos permite predecir las etiquetas de los valores de los datos sobre la base del modelo entrenado.</p>
+        <pre>model.predict([[5.2,4.0,6.4,2.4]])</pre>
+        <p>salida: array [2]</p>
+        <hr>
+        <p>La predicción es 2, por consiguiente, según los datos elegidos, existe un alta probabilidad que sea "Iris Versicolor"</p>
+</body>
+
+<footer>
+    <div>
+      <h1>By <a href="https://github.com/barraquilla1">Henry Viloria</a></h1>
+    </div>
+  </footer>
+</html>

@@ -1,0 +1,14 @@
+Se realizó el SBR con sus respectivas preguntas y respuestas en total son 32 respuestas. Se realizó la base datos relacional en AWS. Pero no se almacenan los datos en la base de datos.
+
+La informacion del SBR se encuentra definidas en Excel.
+
+Se hizo un sitio web, en el cual propociona información, contiene, contiene video, buen formulario hecho con HSTML, Boostrap y JS. Contiene paginas de las cuales: La principal enfocada en mostrar las enfermedades del sistema nervioso. 
+
+La pagina SBR.htlm, nos muestra un formulario con elementos de los cuales no se almacenan en base de dato. 
+
+La Pagina ML.html. Brinda información del Maquinas de vector soporte y como se realizó en google colab. Se realizaron todos los pasos que pedía. Pero no se pudo realizar prediccion en la pagina, solo muestra.
+
+Una pagina que es para realizar reportes, pero no tiene función.
+
+Se desarrolló una api con libreria flask_mysqldb, flask_cors, flask_cors import CORS, cross_origin en Python. Pero se encuentra incompleto, solo tiene la de crear un registro. No se pudo realizar conexion con la base de datos.
+

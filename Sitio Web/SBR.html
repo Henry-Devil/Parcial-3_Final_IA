@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/SBR.css">
+	<link rel="shortcut icon" href="img/logo_new.png" type="image/x-icon">
+
+	<title>Formulario</title>
+	 <!-JQUERY->
+    <script  src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <! -- FRAMEWORK BOOTSTRAP para el estilo de la pagina -->
+    <link  rel = " stylesheet " href = " https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css ">
+    <script  src = " https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js "></script>
+    
+    <! --Los iconos tipo Solid de Fontawesome-->
+    <link  rel = " stylesheet " href = " https://use.fontawesome.com/releases/v5.0.8/css/solid.css ">
+    <script  src = " https://use.fontawesome.com/releases/v5.0.7/js/all.js "></script>
+</head>
+<body>
+	<section class="orden">
+	<div class="modal-dialog text-center">
+		<div class="col-lg-12 main-section">
+			<div class="modal-content">
+				<div class="col-12 user-img">
+				 <img src="img/logo_new.png", width="200", height="200"> 
+				</div>
+				<form class=" col-12">
+					<div class="form-group" id="user-group">
+						<b align="center"> FORMULARIO - DIAGNOSTICO DE TU SALUD.</b>
+					</div>
+					<div class="form-group" id="user-group">
+						<label align="left"> Nombre y apellido:</label><br>
+						<input type="text" name="nombre" class="form-control" required="">
+					</div>
+					<div class="form-group" id="contraseña-group">
+						<label align="left">¿Has sentido dolores de cabeza en los ultimos días? </label><br>
+						<input type="text" name="respuesta" class="form-control" required="">
+					</div>
+					<div class="form-group" id="contraseña-group">
+						<label align="left">¿Sientes problemas de equilibrio o la cordinación?</label><br>
+						<input type="text" name="respuesta1" class="form-control" required="">
+					</div>
+					<div class="form-group" id="contraseña-group">
+						<label align="left">¿Tú vision falla o tienes visión borrosa? </label><br>
+						<input type="text" name="respuesta1" class="form-control" required="">
+					</div>
+					<div class="form-group" id="contraseña-group">
+						<label align="left">¿Te cuesta hablar o arrastras las palabras?</label><br>
+             <br><input type="text" name="respuesta3" required class="form-control" required>
+					</div>
+					<div class="form-group" id="contraseña-group">
+						<label>¿Has sentido debilidad en el cuerpo?</label><br>
+						<input type="text" name="respuesta1" class="form-control" required="">
+					</div>
+					
+					<div class="form-group" id="contraseña-group">
+						<label>Diagnostico:</label><br>
+						<input type="text" name="diagnostico" class="form-control" required readonly=»readonly» style="height: 150px;">
+					</div>
+					<br>
+					<a class="btn btn-primary" onclick="Mymensaje()" href="" id="btnEnviar"> <i class="fas fa-sign-in-alt"></i> Enviar</a>
+                  
+                   <script type="text/javascript">
+                     
+                     function Mymensaje(){
+                        alert("Sus datos se han guardado correctamente")
+                     }
+                  </script>
+                  <br>
+                  
+                  <div class="container-login100-form-btn p-b-30">
+                   <a class="btn btn-primary" href="index.html" id="btnRegresar"> Volver</a>
+                   </div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</section>
+</body>
+</html>

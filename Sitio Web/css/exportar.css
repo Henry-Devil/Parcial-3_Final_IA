@@ -1,0 +1,46 @@
+body{
+background: url(../img/) no-repeat center center fixed;
+background-size: cover;
+
+}
+
+.orden{
+
+	position: left;
+}
+
+.modal-content{
+	background-color:#a2c98f;
+	opacity: .95;
+	padding: 0 20px;
+	box-shadow: 0px 0px 3px #a2c98f;
+}
+.form-group input{
+	height: 42px;
+	font-size: 15px;
+
+	
+}
+.form-group select{
+	height: 42px;
+	font-size: 15px;
+}
+button{
+	width: 60%;
+	margin: 5px 0 25px;
+	
+}
+.forgot{
+	padding: 5px 0;
+}
+label{
+	position: absolute;
+	left: 22px;
+
+
+}
+.btn-primary{
+	width: 60%;
+	margin: 5px 0 25px;
+	
+}
